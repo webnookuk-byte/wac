@@ -165,6 +165,43 @@ if (contactForm) {
   });
 }
 
+/* ── LIGHTBOX ─────────────────────────────────────────── */
+const lightbox     = document.getElementById('lightbox');
+const lightboxImg  = document.getElementById('lightboxImg');
+const lightboxClose = document.getElementById('lightboxClose');
+
+function openLightbox(img) {
+  lightboxImg.src = img.src;
+  lightboxImg.alt = img.alt;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  lightboxImg.src = '';
+}
+
+document.querySelectorAll('.gallery-item').forEach(item => {
+  const img = item.querySelector('img');
+  if (img) item.addEventListener('click', () => openLightbox(img));
+});
+
+if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+
+// Close on backdrop click (not on the image itself)
+if (lightbox) {
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+}
+
+// Close on Escape
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && lightbox && lightbox.classList.contains('open')) closeLightbox();
+});
+
 /* ── SMOOTH SCROLL for internal anchors ──────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
