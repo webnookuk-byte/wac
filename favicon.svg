@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="4" fill="#2C302A"/>
+  <text
+    x="16"
+    y="23"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="18"
+    font-weight="400"
+    fill="#C9A84C"
+    text-anchor="middle"
+    letter-spacing="0">W</text>
+  <line x1="6" y1="27" x2="26" y2="27" stroke="#C9A84C" stroke-width="0.75" opacity="0.5"/>
+</svg>
